@@ -5,7 +5,7 @@ const app = require('express')()
 admin.initializeApp();
 
 const firebaseConfig = {
-    apiKey: "AIzaSyB5XU3W-atJ2sieSnRNxXP19LYpQInviA4",
+    apiKey: process.env.GOOGLE_API,
     authDomain: "fonds-voor-west.firebaseapp.com",
     projectId: "fonds-voor-west",
     storageBucket: "fonds-voor-west.appspot.com",
