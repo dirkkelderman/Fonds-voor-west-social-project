@@ -1,5 +1,6 @@
 
 module.exports = {
+
     authDomain: "fonds-voor-west.firebaseapp.com",
     projectId: "fonds-voor-west",
     storageBucket: "fonds-voor-west.appspot.com",
