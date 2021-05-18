@@ -57,7 +57,7 @@ exports.signup = (req, res) => {
             if(err.code === 'auth/email-already-in-use'){
                 return res.status(400).json({email: 'Email is already in use'});
             } else {
-                return res.status(500).json({error: err.code})
+                return res.status(500).json({general: 'Something went wrong, please try again'})
             }
         })
 
@@ -84,11 +84,10 @@ exports.login = (req, res) => {
         })   
         .catch( err => {
             console.error(err)
-            if(err.code === 'auth/wrong-password'){
-                return res.status(403).json({ general: 'Wrong credentials, please try again'});
-            } else {
-                return res.status(500).json({error: err.code })
-            }
+            return res
+                .status(403)
+                .json({ general: 'Wrong credentials, please try again'});
+    
         }) 
 }
 
@@ -213,7 +212,7 @@ exports.uploadImage = (req, res) => {
             }
         })
         .then(() => {
-            const imageUrl = `http://firebasestorage.googleapis.com/v0/b/${config.storageBucket}/o/${imageFileName}?alt=media`
+            const imageUrl = `https://firebasestorage.googleapis.com/v0/b/${config.storageBucket}/o/${imageFileName}?alt=media`
             return db.doc(`/users/${req.user.handle}`).update({ imageUrl });
         })
         .then(() => {

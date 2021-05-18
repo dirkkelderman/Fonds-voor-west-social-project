@@ -1,5 +1,6 @@
 
 module.exports = {
+    apiKey: "AIzaSyB5XU3W-atJ2sieSnRNxXP19LYpQInviA4",
 
     authDomain: "fonds-voor-west.firebaseapp.com",
     projectId: "fonds-voor-west",
